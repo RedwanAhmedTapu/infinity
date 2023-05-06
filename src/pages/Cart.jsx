@@ -27,6 +27,10 @@ const Cart = () => {
   return (
     <>
       {cart ? (
+        <div className="flex w-96 h-48 bg-slate-700 text-3xl text-white flex justify-center items-center ">
+          Your Cart is empty
+        </div>
+      ) : (
         <div className="w-screen flex flex-col justify-center items-center self-center  gap-y-4  bg-slate-500 p-8 ">
           {cart &&
             cart.map((curElem, index) => {
@@ -46,10 +50,6 @@ const Cart = () => {
               total price : {total_price}$
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="flex w-96 h-48 bg-slate-700 text-3xl text-white flex justify-center items-center ">
-          Your Cart is empty
         </div>
       )}
     </>
