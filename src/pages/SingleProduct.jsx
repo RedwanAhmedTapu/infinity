@@ -9,7 +9,7 @@ import { NavLink, useParams } from "react-router-dom";
 import Star from "../Components/Star";
 import { useCartContext } from "../context/CartContext";
 const SingleProduct = () => {
-  const [singleproduct, setSingleproduct] = useState("");
+  const [singleproduct, setSingleproduct] = useState({});
   const [image, setImage] = useState();
   const [amount, setAmount] = useState(1);
   const { id } = useParams();
