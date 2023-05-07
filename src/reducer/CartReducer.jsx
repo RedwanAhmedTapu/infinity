@@ -1,18 +1,6 @@
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
-    let { singleproduct, amount } = action.payload;
-
-    // let cartProduct = {
-    //   id: singleproduct.id,
-    //   name: singleproduct.title,
-    //   price: singleproduct.price,
-
-    //   image: singleproduct.images[0],
-
-    //   stock: singleproduct.stock,
-    //   amount: amount,
-    // };
-    // console.log(cartProduct);
+    let { amount } = action.payload;
 
     return {
       ...state,
