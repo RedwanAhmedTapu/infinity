@@ -167,18 +167,19 @@ const SingleProduct = () => {
               <NavLink
                 to="/cart"
                 onClick={() => {
-                  addToCart(
-                    id,
-                    singleproduct.images[0],
+                  singleproduct &&
+                    addToCart(
+                      id,
+                      singleproduct.images[0],
 
-                    singleproduct.price,
+                      singleproduct.price,
 
-                    singleproduct.stock,
-                    singleproduct.title,
+                      singleproduct.stock,
+                      singleproduct.title,
 
-                    singleproduct,
-                    amount
-                  );
+                      singleproduct,
+                      amount
+                    );
                 }}
               >
                 <button className="flex self-center items-center justify-center text-1xl text-violet-50 hover:scale-110 w-24 h-16 bg-red-400   rounded shadow-xl hover:transition ease-in-out duration-300 uppercase p-2">
