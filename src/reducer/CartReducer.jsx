@@ -2,21 +2,21 @@ const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let { singleproduct, amount } = action.payload;
 
-    let cartProduct = {
-      id: singleproduct.id,
-      name: singleproduct.title,
-      price: singleproduct.price,
+    // let cartProduct = {
+    //   id: singleproduct.id,
+    //   name: singleproduct.title,
+    //   price: singleproduct.price,
 
-      image: singleproduct.images[0],
+    //   image: singleproduct.images[0],
 
-      stock: singleproduct.stock,
-      amount: amount,
-    };
-    console.log(cartProduct);
+    //   stock: singleproduct.stock,
+    //   amount: amount,
+    // };
+    // console.log(cartProduct);
 
     return {
       ...state,
-      cart: [...state.cart, cartProduct],
+      cart: [...state.cart, { ...action.payload }],
     };
   }
   if (action.type === "REMOVE_ITEM") {
