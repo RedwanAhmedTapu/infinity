@@ -58,7 +58,7 @@ const CartProvider = ({ children }) => {
     // dispatch({ type: "CART_ITEM_PRICE_TOTAL" });
 
     localStorage.setItem("thapaCart", JSON.stringify(state.cart));
-  }, [state]);
+  }, [state.cart]);
 
   return (
     <CartContext.Provider
