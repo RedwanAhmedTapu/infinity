@@ -12,19 +12,19 @@ const Nav = () => {
   const Navigate = useNavigate();
   const home = () => {
     Navigate("/");
-    setMenu(true);
+    setMenu(false);
   };
   const about = () => {
     Navigate("/about");
-    setMenu(true);
+    setMenu(false);
   };
   const contact = () => {
     Navigate("/contact");
-    setMenu(true);
+    setMenu(false);
   };
   const cart = () => {
     Navigate("/cart");
-    setMenu(true);
+    setMenu(false);
   };
   console.log(menu);
   return (
@@ -47,7 +47,7 @@ const Nav = () => {
             className="menubar"
             style={{ fontSize: "3rem" }}
             onClick={() => {
-              setMenu(true);
+              setMenu(false);
             }}
           />
         </div>
@@ -92,27 +92,6 @@ const Nav = () => {
         </div>
       </div>
       {menu ? (
-        <div className=" sticky top-0 left-0 right-0 z-30 bg-white  w-screen h-24 sm:hidden flex flex-row justify-evenly font-['sans-serif']   shadow-md ">
-          <div className="h-auto max-w-full flex self-center space-x-3">
-            <img src={infinity} alt="logo-img" className="  h-14 w-14 " />
-            <div className="infinity  text-purple-600 lg:text-5xl text-3xl text-bold place-items-center self-center ">
-              infinity
-            </div>
-            <div className=" infinity text-purple-600 lg:text-5xl text-3xl place-items-center self-center ">
-              shop
-            </div>
-          </div>
-          <div className="  text-slate-900 flex justify-center items-center sm:hidden ">
-            <MenuIcon
-              className="menubar rounded"
-              style={{ fontSize: "3rem" }}
-              onClick={() => {
-                setMenu(false);
-              }}
-            />
-          </div>
-        </div>
-      ) : (
         <div className="navbar sticky top-0 left-0 right-0  z-30 bg-white  w-screen h-screen space-y-20 flex sm:hidden flex-col justify-evenly font-['sans-serif'] shadow-md ">
           <div
             className="h-auto max-w-full flex self-center space-x-3 "
@@ -129,7 +108,7 @@ const Nav = () => {
               className="relative top-1"
               style={{ fontSize: "3rem" }}
               onClick={() => {
-                setMenu(true);
+                setMenu(false);
               }}
             />
           </div>
@@ -171,11 +150,32 @@ const Nav = () => {
             <button
               className="flex self-center items-center justify-center  lg:text-2xl   text-zinc-500 hover:scale-110 lg:w-32  w-24  sm:h-16 h-12 bg-cyan-400   rounded shadow-xl hover:transition ease-in-out duration-300 uppercase p-2 font-semibold  relative bottom-4"
               onClick={() => {
-                setMenu(true);
+                setMenu(false);
               }}
             >
               <NavLink to="/login">Login</NavLink>
             </button>
+          </div>
+        </div>
+      ) : (
+        <div className=" sticky top-0 left-0 right-0 z-30 bg-white  w-screen h-24 sm:hidden flex flex-row justify-evenly font-['sans-serif']   shadow-md ">
+          <div className="h-auto max-w-full flex self-center space-x-3">
+            <img src={infinity} alt="logo-img" className="  h-14 w-14 " />
+            <div className="infinity  text-purple-600 lg:text-5xl text-3xl text-bold place-items-center self-center ">
+              infinity
+            </div>
+            <div className=" infinity text-purple-600 lg:text-5xl text-3xl place-items-center self-center ">
+              shop
+            </div>
+          </div>
+          <div className="  text-slate-900 flex justify-center items-center sm:hidden ">
+            <MenuIcon
+              className="menubar rounded"
+              style={{ fontSize: "3rem" }}
+              onClick={() => {
+                setMenu(true);
+              }}
+            />
           </div>
         </div>
       )}

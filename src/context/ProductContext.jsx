@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 import reducer from "../reducer/ProductReducer";
 
-const API = "https://dummyjson.com/products";
+const API = "http://localhost:4000/products";
 
 const AppContext = createContext();
 
@@ -23,6 +23,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" });
     try {
       const res = await axios.get(url);
+      console.log(res);
       const products = await res.data;
       console.log(products);
 
@@ -59,5 +60,5 @@ const useProductContext = () => {
   return useContext(AppContext);
 };
 
-export { AppProvider, AppContext, useProductContext };
+export { AppContext, AppProvider, useProductContext };
 // export default useProductContext;

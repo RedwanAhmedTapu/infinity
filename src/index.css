@@ -45,7 +45,9 @@
     #1a2980
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.infinity {
+.infinity,
+.cartText,
+.userDashText {
   background: -webkit-linear-gradient(#39b5e0, #301e67);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,7 +58,8 @@
   background: -webkit-linear-gradient(to right, #4389a2, #5c258d);
   background: linear-gradient(to right, #4389a2, #5c258d);
 }
-.shopcartCircle {
+.shopcartCircle,
+.productCardDiv {
   background: #2bc0e4;
   background: -webkit-linear-gradient(to right, #eaecc6, #2bc0e4);
   background: linear-gradient(to right, #eaecc6, #2bc0e4);
@@ -100,7 +103,19 @@
     #bdc3c7
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
+.login {
+  background: #314755; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #26a0da,
+    #314755
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #26a0da,
+    #314755
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 @media only screen and (max-width: 324px) {
   .sectionInfinityText {
     font-size: 1.3rem;

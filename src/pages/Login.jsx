@@ -1,32 +1,111 @@
-import React from "react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Checkbox,
+  Input,
+  Typography,
+} from "@material-tailwind/react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [user, setUser] = useState({
+    email: " ",
+    password: " ",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // const  {firstname,lastname,phone,password,confirmpassword,decription}=user;
+    try {
+      const { email, password } = user;
+      console.log(user);
+      if (email.trim() === "" || password.trim() === "") {
+        alert("please fill all the data");
+      } else {
+        await fetch("http://localhost:4000/loguser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }).then((res) => {
+          if (email === "admin@gmail.com") {
+            window.location.assign(`/adminDashboard`);
+          } else {
+            window.location.assign(`/userDashboard?userMail=${email}`);
+          }
+          alert("login successfull");
+        });
+      }
+    } catch (error) {
+      console.error("Failed to login :", error);
+    }
+  };
+  console.log(user);
   return (
     <>
-      <div className=" login flex flex-col space-y-4 w-screen h-screen bg-orange-600 justify-center items-center fixed">
-        <label for="email" className="text-2xl sm:text-4xl font-serif">
-          Email:
-        </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          className="text-2xl sm:text-4xl font-serif"
-        />
-        <label for="password" className="text-2xl sm:text-4xl font-serif">
-          Password:
-        </label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          className="text-2xl sm:text-4xl font-serif"
-        />
-        <input
-          type="submit"
-          value="Submit"
-          className="w-40 h-16 bg-violet-500 flex justify-center items-center text-2xl sm:text-4xl"
-        />
+      <div className="flex justify-center items-center w-screen h-screen">
+        <Card className="w-96 flex justify-center flex self-center rounded-lg">
+          <CardBody className="flex flex-col gap-8">
+            <Input
+              type="email"
+              placeholder="Email"
+              className="h-16"
+              size="lg"
+              name="email"
+              id="email"
+              value={user.email}
+              onChange={handleChange}
+            />
+            <Input
+              type="password"
+              placeholder="Password"
+              className="h-16"
+              size="lg"
+              name="password"
+              id="password"
+              value={user.password}
+              onChange={handleChange}
+            />
+            <div className="-ml-2.5">
+              <Checkbox label="Remember Me" />
+            </div>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Button
+              variant="gradient"
+              className="bg-blue-500 h-24"
+              fullWidth
+              onClick={handleSubmit}
+            >
+              Sign In
+            </Button>
+            <Typography variant="small" className="mt-6 flex justify-center">
+              Don't have an account?
+              <Link to={"/signup"}>
+                <Typography
+                  as="a"
+                  variant="small"
+                  color="blue"
+                  className="ml-1 font-bold text-blue-600"
+                >
+                  Sign up
+                </Typography>
+              </Link>
+            </Typography>
+          </CardFooter>
+        </Card>
       </div>
     </>
   );

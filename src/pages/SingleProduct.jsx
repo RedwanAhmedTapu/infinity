@@ -4,6 +4,7 @@ import CategoryIcon from "@mui/icons-material/Category";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import RemoveIcon from "@mui/icons-material/Remove";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Star from "../Components/Star";
@@ -14,8 +15,7 @@ const SingleProduct = () => {
   const [amount, setAmount] = useState(1);
   const { id } = useParams();
   const { addToCart } = useCartContext();
-  // console.log(singleproduct.images[0]);
-  const API = "https://dummyjson.com/products/";
+  console.log(id);
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -28,13 +28,15 @@ const SingleProduct = () => {
   };
 
   useEffect(() => {
-    fetch(`${API}${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setSingleproduct(data);
-        console.log(data);
-      });
-  }, []);
+    const singleprdct = async () => {
+      const res = await axios.get(`http://localhost:4000/${id}`);
+      console.log(res);
+      const products = await res.data;
+      setSingleproduct(products);
+      console.log(products);
+    };
+    singleprdct();
+  }, [id]);
   // console.log(singleproduct.image[3]);
   return (
     <>
@@ -58,45 +60,48 @@ const SingleProduct = () => {
                 />
               ) : (
                 <img
-                  src={singleproduct.images[0]}
+                  src={singleproduct.thumbnail}
                   className="w-16 h-16 sm:w-28 sm:h-28 "
+                  onClick={() => {
+                    setImage(singleproduct.thumbnail);
+                  }}
                 />
               )}
             </div>
             <div className="flex gap-1 sm:gap-3 justify-center items-center w-24 h-24 box-border">
               <img
-                src={singleproduct.images[0]}
+                src={singleproduct.image1}
                 key={id}
                 className="w-16 h-16sm:w-24 sm:h-24 rounded shadow-md shadow-sky-50 hover:scale-110"
                 onClick={() => {
-                  setImage(singleproduct.images[0]);
+                  setImage(singleproduct.image1);
                 }}
               />
 
               <img
-                src={singleproduct.images[1]}
+                src={singleproduct.image2}
                 key={id}
                 className="w-16 h-16 sm:w-24 sm:h-24 rounded shadow-md shadow-sky-50 hover:scale-110"
                 onClick={() => {
-                  setImage(singleproduct.images[1]);
+                  setImage(singleproduct.image2);
                 }}
               />
 
               <img
-                src={singleproduct.images[2]}
+                src={singleproduct.image3}
                 key={id}
                 className="w-16 h-16 sm:w-24 sm:h-24 rounded shadow-md shadow-sky-50 hover:scale-110"
                 onClick={() => {
-                  setImage(singleproduct.images[2]);
+                  setImage(singleproduct.image3);
                 }}
               />
 
               <img
-                src={singleproduct.images[3]}
+                src={singleproduct.image4}
                 key={id}
                 className="w-16 h-16 sm:w-24 sm:h-24  rounded shadow-md shadow-sky-50 hover:scale-110"
                 onClick={() => {
-                  setImage(singleproduct.images[3]);
+                  setImage(singleproduct.image4);
                 }}
               />
             </div>
@@ -170,7 +175,7 @@ const SingleProduct = () => {
                   onClick={() => {
                     addToCart(
                       id,
-                      singleproduct.images[0],
+                      singleproduct.thumbnail,
 
                       singleproduct.price,
 

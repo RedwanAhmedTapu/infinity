@@ -1,32 +1,100 @@
-import React from "react";
+// import axios from "axios";
+import React, { useState } from "react";
 
 const Signup = () => {
+  const [user, setUser] = useState({
+    image: "",
+    username: " ",
+    phone: " ",
+    email: " ",
+    password: " ",
+    confirmpassword: " ",
+    description: " ",
+  });
+  console.log(user);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { confirmpassword, description, email, password, phone, username } =
+      user;
+    console.log(confirmpassword);
+    try {
+      if (
+        confirmpassword.trim() === "" ||
+        description.trim() === "" ||
+        email.trim() === "" ||
+        password.trim() === "" ||
+        phone.trim() === "" ||
+        username.trim() === "" ||
+        user.image.trim() === ""
+      ) {
+        alert("please fill all the data");
+      } else {
+        await fetch("http://localhost:4000/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }).then((res) => {
+          window.location.assign("/login");
+          alert("registration completed");
+        });
+      }
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+    }
+  };
+  // handleSubmit();
+
   return (
     <>
-      <div className="w-screen h-screen bg-violet-900 flex justify-center items-center fixed">
+      <div className="w-screen h-screen bg-violet-900 flex justify-center items-center ">
         <form
           className=" flex flex-col justify-center items-center space-y-2 sm:space-y-6"
           style={{ width: "155rem", height: "55rem" }}
         >
           <div className="flex flex-col space-y-2">
-            <label for="fname" className="text-xl text-white font-semibold">
-              First Name :
-            </label>
             <input
               type="text"
-              id="fname"
-              name="fname"
-              className="text-xl font-serif "
+              id="image"
+              name="image"
+              placeholder="profile Image"
+              className="text-xl font-serif w-34 h-34 "
+              value={user.image}
+              onChange={handleChange}
               required
             />
-            <label for="lname" className="text-xl text-white font-semibold">
-              Last Name :
+            <label for="username" className="text-xl text-white font-semibold">
+              Name :
             </label>
             <input
               type="text"
-              id="lname"
-              name="lname"
+              id="username"
+              name="username"
+              className="text-xl font-serif "
+              value={user.name}
+              onChange={handleChange}
+              required
+            />
+            <label for="email" className="text-xl text-white font-semibold">
+              email :
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
               className="text-xl font-serif"
+              value={user.name}
+              onChange={handleChange}
               required
             />
           </div>
@@ -39,6 +107,8 @@ const Signup = () => {
               name="phone"
               id="phone"
               className=" text-xl font-serif"
+              value={user.name}
+              onChange={handleChange}
               required
             />
             <label for="password" className="text-xl text-white font-semibold">
@@ -49,24 +119,47 @@ const Signup = () => {
               name="password"
               id="password"
               className=" text-xl font-serif"
+              value={user.name}
+              onChange={handleChange}
               required
             />
           </div>
+          <label
+            for="confirmpassword"
+            className="text-xl text-white font-semibold"
+          >
+            Confirm Password:
+          </label>
+          <input
+            type="password"
+            name="confirmpassword"
+            id="confirmpassword"
+            className=" text-xl font-serif"
+            value={user.name}
+            onChange={handleChange}
+            required
+          />
+
           <div className="flex flex-row space-x-2 justify-center items-center">
-            <label for="textarea" className="text-xl text-white font-semibold">
+            <label
+              for="description"
+              className="text-xl text-white font-semibold"
+            >
               Description:
             </label>
             <textarea
               className="w-28 sm:w-64 h-28"
-              name="textarea"
-              id="textarea"
+              name="description"
+              id="description"
               cols="30"
               rows="5"
+              value={user.name}
+              onChange={handleChange}
               required
             ></textarea>
           </div>
           <div className="bg-orange-400 w-44 h-16 flex justify-center items-center text-xl text-white font-semibold">
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Register" onClick={handleSubmit} />
           </div>
         </form>
       </div>
