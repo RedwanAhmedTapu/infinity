@@ -33,7 +33,7 @@ const Login = () => {
       if (email.trim() === "" || password.trim() === "") {
         alert("please fill all the data");
       } else {
-        await fetch("http://localhost:4000/loguser", {
+        await fetch("https://backendserver-yn62.onrender.com/loguser", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

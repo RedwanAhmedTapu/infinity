@@ -66,7 +66,7 @@ const AdminDashboard = () => {
       ) {
         alert("please fill all the data");
       } else {
-        await fetch("http://localhost:4000/newProduct", {
+        await fetch("https://backendserver-yn62.onrender.com/newProduct", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -29,7 +29,9 @@ const SingleProduct = () => {
 
   useEffect(() => {
     const singleprdct = async () => {
-      const res = await axios.get(`http://localhost:4000/${id}`);
+      const res = await axios.get(
+        `https://backendserver-yn62.onrender.com/${id}`
+      );
       console.log(res);
       const products = await res.data;
       setSingleproduct(products);

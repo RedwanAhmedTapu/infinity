@@ -12,7 +12,9 @@ const UserDashboard = () => {
   useEffect(() => {
     const user = async () => {
       // console.log(email);
-      const res = await axios.get(`http://localhost:4000/user/${email}`);
+      const res = await axios.get(
+        `https://backendserver-yn62.onrender.com/user/${email}`
+      );
 
       const data = await res.data;
       setUserData(data);
@@ -20,7 +22,9 @@ const UserDashboard = () => {
     };
     const order = async () => {
       // console.log(email);
-      const res = await axios.get(`http://localhost:4000/ordered/${email}`);
+      const res = await axios.get(
+        `https://backendserver-yn62.onrender.com/ordered/${email}`
+      );
 
       const data = await res.data;
       setOrderData(data);

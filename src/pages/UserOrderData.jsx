@@ -8,7 +8,9 @@ const UserOrderData = () => {
   useEffect(() => {
     const order = async () => {
       console.log(phnNumber);
-      const res = await axios.get(`http://localhost:4000/order/${phnNumber}`);
+      const res = await axios.get(
+        `https://backendserver-yn62.onrender.com/order/${phnNumber}`
+      );
 
       const data = await res.data;
       setOrderData(data);
