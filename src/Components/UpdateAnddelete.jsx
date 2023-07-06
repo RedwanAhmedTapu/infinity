@@ -3,7 +3,9 @@ import React from "react";
 
 const UpdateAnddelete = (curElem) => {
   const updateProduct = async () => {
-    const res = await axios.patch(`http://localhost:4000/update/${curElem.Id}`);
+    const res = await axios.patch(
+      `https://backendserver-yn62.onrender.com/update/${curElem.Id}`
+    );
     console.log(res);
     const products = await res.data;
 
@@ -11,7 +13,7 @@ const UpdateAnddelete = (curElem) => {
   };
   const deleteProduct = async () => {
     const res = await axios.delete(
-      `http://localhost:4000/delete/${curElem.Id}`
+      `https://backendserver-yn62.onrender.com/delete/${curElem.Id}`
     );
     console.log(res);
     const products = await res.data;

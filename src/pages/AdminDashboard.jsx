@@ -96,7 +96,7 @@ const AdminDashboard = () => {
     const id = products.Id;
 
     try {
-      await fetch(`http://localhost:4000/update/:${id}`, {
+      await fetch(`https://backendserver-yn62.onrender.com/update/:${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
