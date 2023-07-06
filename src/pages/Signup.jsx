@@ -38,7 +38,7 @@ const Signup = () => {
       ) {
         alert("please fill all the data");
       } else {
-        await fetch("http://localhost:4000/register", {
+        await fetch("https://backendserver-yn62.onrender.com/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
