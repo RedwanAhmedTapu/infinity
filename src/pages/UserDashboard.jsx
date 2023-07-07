@@ -23,7 +23,7 @@ const UserDashboard = () => {
     const order = async () => {
       // console.log(email);
       const res = await axios.get(
-        `https://backendserver-yn62.onrender.com/ordered/${email}`
+        `https://backendserver-flsp.onrender.com/ordered/${email}`
       );
 
       const data = await res.data;
