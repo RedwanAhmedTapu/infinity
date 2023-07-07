@@ -44,7 +44,7 @@ const OrderPage = () => {
           },
           body: JSON.stringify(orderData),
         }).then((res) => {
-          window.location.assign(`/userOrderData?userNumber=${phoneNumber}`);
+          window.location.href = `/userOrderData?userNumber=${phoneNumber}`;
           alert("Order placed successfully!");
         });
       }
