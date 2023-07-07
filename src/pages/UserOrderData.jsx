@@ -9,7 +9,7 @@ const UserOrderData = () => {
     const order = async () => {
       console.log(phnNumber);
       const res = await axios.get(
-        `https://backendserver-yn62.onrender.com/order/${phnNumber}`
+        `https://backendserver-flsp.onrender.com/order/${phnNumber}`
       );
 
       const data = await res.data;

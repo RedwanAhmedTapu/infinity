@@ -37,7 +37,7 @@ const OrderPage = () => {
       ) {
         alert("please fill all the data");
       } else {
-        await fetch("https://backendserver-yn62.onrender.com/orders", {
+        await fetch("https://backendserver-flsp.onrender.com/orders", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

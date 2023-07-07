@@ -13,7 +13,7 @@ const UserDashboard = () => {
     const user = async () => {
       // console.log(email);
       const res = await axios.get(
-        `https://backendserver-yn62.onrender.com/user/${email}`
+        `https://backendserver-flsp.onrender.com/user/${email}`
       );
 
       const data = await res.data;

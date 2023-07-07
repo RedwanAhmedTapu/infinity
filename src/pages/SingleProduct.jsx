@@ -30,7 +30,7 @@ const SingleProduct = () => {
   useEffect(() => {
     const singleprdct = async () => {
       const res = await axios.get(
-        `https://backendserver-yn62.onrender.com/${id}`
+        `https://backendserver-flsp.onrender.com/${id}`
       );
       console.log(res);
       const products = await res.data;

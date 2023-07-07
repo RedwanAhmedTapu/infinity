@@ -4,7 +4,7 @@ import React from "react";
 const UpdateAnddelete = (curElem) => {
   const updateProduct = async () => {
     const res = await axios.patch(
-      `https://backendserver-yn62.onrender.com/update/${curElem.Id}`
+      `https://backendserver-flsp.onrender.com/update/${curElem.Id}`
     );
     console.log(res);
     const products = await res.data;
@@ -13,7 +13,7 @@ const UpdateAnddelete = (curElem) => {
   };
   const deleteProduct = async () => {
     const res = await axios.delete(
-      `https://backendserver-yn62.onrender.com/delete/${curElem.Id}`
+      `https://backendserver-flsp.onrender.com/delete/${curElem.Id}`
     );
     console.log(res);
     const products = await res.data;
