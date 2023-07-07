@@ -1,14 +1,9 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import { useCartContext } from "../context/CartContext";
 const Cart = () => {
   const { cart, total_price, total_item } = useCartContext();
-  const navigate = useNavigate();
-  console.log(cart);
-  if (window.reload()) {
-    navigate(window.location);
-  }
 
   return (
     <>
