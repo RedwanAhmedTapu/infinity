@@ -41,12 +41,17 @@ const Login = () => {
           },
           body: JSON.stringify(user),
         }).then((res) => {
-          if (email === "admin@gmail.com") {
-            navigate(`/adminDashboard`);
+          console.log(res);
+          if (!res.user) {
+            alert("wrong password and email");
           } else {
-            navigate(`/userDashboard?userMail=${email}`);
+            if (email === "admin@gmail.com") {
+              navigate(`/adminDashboard`);
+            } else {
+              navigate(`/userDashboard?userMail=${email}`);
+            }
+            alert("login successfull");
           }
-          alert("login successfull");
         });
       }
     } catch (error) {
