@@ -41,8 +41,9 @@ const Login = () => {
           },
           body: JSON.stringify(user),
         }).then((res) => {
-          console.log(res);
-          if (!res.user) {
+          console.log(res.user);
+          const user = res.user;
+          if (!user) {
             alert("wrong password and email");
           } else {
             if (email === "admin@gmail.com") {
