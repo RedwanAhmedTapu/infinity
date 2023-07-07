@@ -1,5 +1,6 @@
 // import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -12,7 +13,7 @@ const Signup = () => {
     description: " ",
   });
   console.log(user);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -45,7 +46,7 @@ const Signup = () => {
           },
           body: JSON.stringify(user),
         }).then((res) => {
-          window.location.href = "/login";
+          navigate("/login");
           alert("registration completed");
         });
       }

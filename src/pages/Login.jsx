@@ -8,13 +8,14 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState({
     email: " ",
     password: " ",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,9 +42,9 @@ const Login = () => {
           body: JSON.stringify(user),
         }).then((res) => {
           if (email === "admin@gmail.com") {
-            window.location.assign(`/adminDashboard`);
+            navigate(`/adminDashboard`);
           } else {
-            window.location.assign(`/userDashboard?userMail=${email}`);
+            navigate(`/userDashboard?userMail=${email}`);
           }
           alert("login successfull");
         });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
 import { useCartContext } from "../context/CartContext";
-
 const OrderPage = () => {
   const [village, setVillage] = useState("");
   const [postOffice, setPostOffice] = useState("");
@@ -11,8 +11,10 @@ const OrderPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const { cart, total_price, total_item } = useCartContext();
 
+  const navigate = useNavigate();
   const handleConfirmOrder = async (e) => {
     e.preventDefault();
+
     try {
       const orderData = {
         village,
@@ -44,7 +46,7 @@ const OrderPage = () => {
           },
           body: JSON.stringify(orderData),
         }).then((res) => {
-          window.location.href = `/userOrderData?userNumber=${phoneNumber}`;
+          navigate(`/userOrderData?userNumber=${phoneNumber}`);
           alert("Order placed successfully!");
         });
       }
