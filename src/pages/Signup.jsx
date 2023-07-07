@@ -45,7 +45,7 @@ const Signup = () => {
           },
           body: JSON.stringify(user),
         }).then((res) => {
-          window.location.assign("/login");
+          window.location.href = "/login";
           alert("registration completed");
         });
       }
