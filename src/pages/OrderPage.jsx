@@ -14,7 +14,7 @@ const OrderPage = () => {
   const navigate = useNavigate();
   const handleConfirmOrder = async (e) => {
     e.preventDefault();
-
+    alert("You Must fill up registered email and phone number");
     try {
       const orderData = {
         village,
