@@ -135,7 +135,7 @@ app.get("/:id", async (req, res) => {
   }
 });
 //for updating product
-app.patch("/update/:id", async (req, res) => {
+app.put("/update/:id", async (req, res) => {
   // res.sendFile(path.join(__dirname, "../public/index.html"));
   // res.render(path.join(__dirname, "../views/pages/express.hbs"));
   const Id = req.params.id;

@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 import reducer from "../reducer/ProductReducer";
 
-const API = "https://backendserver-yn62.onrender.com/products";
+const API = "https://backendserver-flsp.onrender.com/products";
 
 const AppContext = createContext();
 
