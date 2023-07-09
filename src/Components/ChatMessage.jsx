@@ -65,14 +65,14 @@ const ChatMessage = () => {
             Send
           </button>
         </div>
-        <ul className="divide-y divide-gray-300">
+        {/* <ul className="divide-y divide-gray-300">
           {message &&
             messages.map((msg, index) => (
               <li key={index} className="py-2">
                 <strong>{msg.user}</strong>: {msg.message}
               </li>
             ))}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
