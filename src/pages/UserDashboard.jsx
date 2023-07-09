@@ -1,11 +1,13 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ChatMessage from "../Components/ChatMessage";
 import ProductCard from "../Components/ProductCard";
 
 const UserDashboard = () => {
   const [userData, setUserData] = useState("");
   const [orderdata, setOrderData] = useState("");
+  const [show, setShow] = useState(false);
   const queryParams = new URLSearchParams(window.location.search);
   const email = queryParams.get("userMail");
 
@@ -71,7 +73,12 @@ const UserDashboard = () => {
           </div>
         </div>
       </div>
-
+      <div
+        className="w-34 h-34 rounded-full sticky top-44 left-0"
+        onClick={setShow(true)}
+      >
+        {show ? <ChatMessage /> : <div></div>}
+      </div>
       {orderdata ? (
         <>
           <p className="userDashText text-2xl text-center">
