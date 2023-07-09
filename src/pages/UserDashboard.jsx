@@ -73,12 +73,18 @@ const UserDashboard = () => {
           </div>
         </div>
       </div>
-      <div
-        className="w-34 h-34 rounded-full sticky top-44 left-0"
-        onClick={setShow(true)}
-      >
-        {show ? <ChatMessage /> : <div></div>}
-      </div>
+
+      {show ? (
+        <ChatMessage />
+      ) : (
+        <div
+          className="w-34 h-34 rounded-full sticky top-44 left-0"
+          onClick={setShow(true)}
+        >
+          <p className="flex justify-center items-center text-xl">chat</p>
+        </div>
+      )}
+
       {orderdata ? (
         <>
           <p className="userDashText text-2xl text-center">
