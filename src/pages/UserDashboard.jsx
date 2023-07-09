@@ -74,7 +74,7 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      {show ? (
+      {show === true ? (
         <ChatMessage />
       ) : (
         <div
