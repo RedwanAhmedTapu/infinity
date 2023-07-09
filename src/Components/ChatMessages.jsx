@@ -75,7 +75,7 @@ const ChatMessages = (prop) => {
           {messages.map((msg, index) => {
             return (
               <li key={index} className="py-2">
-                <strong>{msg.user}</strong>: {msg.message}
+                <strong>{msg && msg.user}</strong>: {msg && msg.message}
               </li>
             );
           })}
