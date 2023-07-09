@@ -80,7 +80,7 @@ const UserDashboard = () => {
         </div>
       )}
 
-      {show ? (
+      {userData && show ? (
         <ChatMessages onClick={handleClick} />
       ) : (
         <div

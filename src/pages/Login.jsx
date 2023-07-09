@@ -7,6 +7,7 @@ import {
   Input,
   Typography,
 } from "@material-tailwind/react";
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -34,21 +35,20 @@ const Login = () => {
       if (email.trim() === "" || password.trim() === "") {
         alert("please fill all the data");
       } else {
-        await fetch("https://backendserver-flsp.onrender.com/loguser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        }).then((res) => {
-          console.log(res);
-          if (email === "admin@gmail.com") {
-            navigate(`/adminDashboard`);
-          } else {
-            navigate(`/userDashboard?userMail=${email}`);
-          }
-          alert("login successfull");
-        });
+        const res = await axios
+          .post("https://backendserver-flsp.onrender.com/register", user)
+          .then((res) => {
+            console.log(res.data);
+            if (email === "admin@gmail.com") {
+              navigate(`/adminDashboard`);
+            } else {
+              navigate(`/userDashboard?userMail=${email}`);
+            }
+            alert("login successfull");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } catch (error) {
       console.error("Failed to login :", error);
