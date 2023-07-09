@@ -7,7 +7,7 @@ import ProductCard from "../Components/ProductCard";
 const UserDashboard = () => {
   const [userData, setUserData] = useState("");
   const [orderdata, setOrderData] = useState("");
-  const [show, setShow] = useState("false");
+  const [show, setShow] = useState();
   const queryParams = new URLSearchParams(window.location.search);
   const email = queryParams.get("userMail");
 
@@ -36,6 +36,10 @@ const UserDashboard = () => {
     order();
     console.log(userData);
   }, [email]);
+  console.log(show);
+  const handleClick = () => {
+    setShow(false);
+  };
   return (
     <>
       {userData && (
@@ -76,18 +80,20 @@ const UserDashboard = () => {
         </div>
       )}
 
-      {show === "true" ? (
-        <ChatMessages />
+      {show ? (
+        <ChatMessages onClick={handleClick} />
       ) : (
         <div
-          className="w-34 h-34 rounded-full sticky top-44 left-0"
-          onClick={setShow(true)}
+          className="flex justify-center items-center w-20 h-20 rounded-full sticky top-72 left-0 bg-orange-400"
+          onClick={() => {
+            setShow(true);
+          }}
         >
-          <p className="flex justify-center items-center text-xl">chat</p>
+          <p className=" text-2xl text-yellow-50 ">chat</p>
         </div>
       )}
 
-      {orderdata ? (
+      {userData && orderdata ? (
         <>
           <p className="userDashText text-2xl text-center">
             Product You Selected to Buy

@@ -1,7 +1,8 @@
+import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const ChatMessages = () => {
+const ChatMessages = (prop) => {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState("");
   const [message, setMessage] = useState("");
@@ -20,7 +21,7 @@ const ChatMessages = () => {
       console.error(error);
     }
   };
-
+  const handleClick = prop.onClick;
   const sendMessage = async () => {
     try {
       const response = await axios.post(
@@ -39,6 +40,11 @@ const ChatMessages = () => {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100">
+      <CloseIcon
+        className="relative top-1"
+        style={{ fontSize: "3rem" }}
+        onClick={handleClick}
+      />
       <div className="bg-white bg-opacity-20 rounded-lg shadow-lg p-6 max-w-md w-full">
         <h1 className="text-3xl mb-4">Chat App</h1>
         <div className="mb-4">
