@@ -66,11 +66,12 @@ const ChatMessage = () => {
           </button>
         </div>
         <ul className="divide-y divide-gray-300">
-          {messages.map((msg, index) => (
-            <li key={index} className="py-2">
-              <strong>{msg.user}</strong>: {msg.message}
-            </li>
-          ))}
+          {message &&
+            messages.map((msg, index) => (
+              <li key={index} className="py-2">
+                <strong>{msg.user}</strong>: {msg.message}
+              </li>
+            ))}
         </ul>
       </div>
     </div>
