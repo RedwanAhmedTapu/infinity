@@ -16,7 +16,7 @@ const ChatMessages = (prop) => {
       const response = await axios.get(
         "https://backendserver-flsp.onrender.com/messages"
       );
-      setMessages([...messages, response.data]);
+      setMessages([...messages, response.data.message]);
     } catch (error) {
       console.error(error);
     }
