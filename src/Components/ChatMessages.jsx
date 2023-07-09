@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const ChatMessage = () => {
+const ChatMessages = () => {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState("");
   const [message, setMessage] = useState("");
@@ -69,11 +69,9 @@ const ChatMessage = () => {
           {messages &&
             messages.map((msg, index) => {
               return (
-                <>
-                  <li key={index} className="py-2">
-                    <strong>{msg.user}</strong>: {msg.message}
-                  </li>
-                </>
+                <li key={index} className="py-2">
+                  <strong>{msg.user}</strong>: {msg.message}
+                </li>
               );
             })}
         </ul>
@@ -82,4 +80,4 @@ const ChatMessage = () => {
   );
 };
 
-export default ChatMessage;
+export default ChatMessages;
