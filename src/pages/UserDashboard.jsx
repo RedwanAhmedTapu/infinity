@@ -99,7 +99,7 @@ const UserDashboard = () => {
             Product You Selected to Buy
           </p>
           <div className="productCardDiv flex flex-wrap items-center justify-center w-screen p-10">
-            {orderdata &&
+            {orderdata.cart &&
               orderdata.cart.map((curElem, index) => {
                 return <ProductCard key={index} {...curElem} />;
               })}
