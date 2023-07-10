@@ -41,7 +41,7 @@ const SingleProduct = () => {
     };
     const reviewData = async () => {
       const res = await axios.get(
-        `https://backendserver-flsp.onrender.com/user/messages`
+        `https://backendserver-flsp.onrender.com/review/messages`
       );
       const data = await res.data;
       console.log(res.data);
