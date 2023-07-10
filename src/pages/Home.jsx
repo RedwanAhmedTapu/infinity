@@ -8,7 +8,7 @@ import Spinner from "../Components/Spinner";
 import { useProductContext } from "../context/ProductContext";
 const Home = () => {
   const { products } = useProductContext();
-
+  const spin = products;
   const location = useLocation();
   console.log(location.state);
 
@@ -28,7 +28,7 @@ const Home = () => {
       <div className=" flex flex-col w-screen space-y-16 sm:space-y-20">
         <Section />
         <ProductSelection />
-        {products == null ? (
+        {products.length !== 0 ? (
           <div>
             {location.state
               ? categroyProducts && (
