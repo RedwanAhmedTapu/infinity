@@ -10,7 +10,7 @@ const CartItem = (curElem) => {
   console.log(curElem);
   return (
     <>
-      <div className="cartbox w-64  md:max-w-5xl  h-34 md:h-34  flex flex-col md:flex-row justify-between items-center gap-x-8 p-6 m-3 rounded">
+      <div className="cartbox w-64  md:w-8/12 h-34 md:h-34  flex flex-col md:flex-row justify-between items-center gap-x-8 p-6 m-3 rounded">
         <div className="w-44 h-34 ">
           <img src={curElem.image} className="lg:w-24 w-16 h-16 lg:h-24" />
         </div>

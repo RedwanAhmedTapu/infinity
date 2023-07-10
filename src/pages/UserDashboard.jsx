@@ -89,7 +89,7 @@ const UserDashboard = () => {
             setShow(true);
           }}
         >
-          <p className=" text-2xl text-cyan-500 ">review</p>
+          <p className=" text-xl text-cyan-50 ">review</p>
         </div>
       )}
 
