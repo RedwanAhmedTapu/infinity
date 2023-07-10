@@ -215,11 +215,11 @@ const SingleProduct = () => {
             return (
               <li className="py-4 flex items-center" key={index}>
                 <span className="bg-blue-500 rounded w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
-                  {user && curElem.user}
+                  {curElem.user}
                 </span>
                 :{" "}
                 <span className="bg-blue-500 rounded w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
-                  {user && curElem.message}
+                  {curElem.message}
                 </span>
               </li>
             );
