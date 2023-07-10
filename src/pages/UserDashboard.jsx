@@ -84,7 +84,7 @@ const UserDashboard = () => {
         <ChatMessages onClick={handleClick} />
       ) : (
         <div
-          className="flex justify-center items-center w-20 h-20 rounded-full sticky top-72 left-0 bg-orange-400"
+          className="flex self-center items-center justify-center lg:text-2xl   text-zinc-500 hover:scale-110 w-20 h-20 bg-cyan-400   rounded-full shadow-xl hover:transition ease-in-out duration-300 uppercase p-2 font-semibold "
           onClick={() => {
             setShow(true);
           }}
