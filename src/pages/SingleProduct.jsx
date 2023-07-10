@@ -211,10 +211,13 @@ const SingleProduct = () => {
       </div>
       <ul className="divide-y divide-gray-300">
         {user &&
-          user.map((msg, index) => {
+          user.map((curElem, index) => {
             return (
-              <li key={index} className="py-2">
-                <strong>{user && user.user}</strong>: {user && user.message}
+              <li className="py-4 flex items-center" key={index}>
+                <span className="bg-blue-500 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
+                  {user && curElem.user}
+                </span>
+                : {user && curElem.message}
               </li>
             );
           })}
