@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import Footer from "../Components/Footer";
 import ProductSelection from "../Components/ProductSelection";
@@ -7,7 +7,6 @@ import Slider from "../Components/Slider";
 import Spinner from "../Components/Spinner";
 import { useProductContext } from "../context/ProductContext";
 const Home = () => {
-  const [isProduct, setProduct] = useState(false);
   const { products } = useProductContext();
 
   const location = useLocation();
@@ -23,15 +22,13 @@ const Home = () => {
       }
     });
   console.log(products);
-  useEffect(() => {
-    setProduct(true);
-  }, [products]);
+
   return (
     <>
       <div className=" flex flex-col w-screen space-y-16 sm:space-y-20">
         <Section />
         <ProductSelection />
-        {isProduct ? (
+        {products !== [] ? (
           <div>
             {location.state
               ? categroyProducts && (
