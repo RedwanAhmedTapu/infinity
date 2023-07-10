@@ -214,10 +214,13 @@ const SingleProduct = () => {
           user.map((curElem, index) => {
             return (
               <li className="py-4 flex items-center" key={index}>
-                <span className="bg-blue-500 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
+                <span className="bg-blue-500 rounded w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
                   {user && curElem.user}
                 </span>
-                : {user && curElem.message}
+                :{" "}
+                <span className="bg-blue-500 rounded w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
+                  {user && curElem.message}
+                </span>
               </li>
             );
           })}
