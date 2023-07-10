@@ -9,7 +9,7 @@ const Cart = () => {
 
   return (
     <>
-      {cart.image ? (
+      {cart.image && (
         <div class="h-screen w-screen bg-gray-100 pt-20">
           <h1 class="cartText mb-10 text-center text-3xl font-bold">
             Cart Items
@@ -50,9 +50,8 @@ const Cart = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <EmptyCartComponent />
       )}
+      {!cart.image && <EmptyCartComponent />}
     </>
   );
 };
