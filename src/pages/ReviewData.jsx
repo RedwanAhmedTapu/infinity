@@ -16,7 +16,7 @@ const ReviewData = () => {
   }, [user]);
   console.log(user);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-500">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-500 mt-6">
       <div className=" max-w-2xl  w-full bg-white rounded-lg p-8 shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-30">
         <h2 className="text-2xl font-bold text-white mb-4">Reveiw List</h2>
         <ul className="divide-y divide-gray-300">
