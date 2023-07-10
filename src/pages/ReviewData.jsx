@@ -32,7 +32,9 @@ const ReviewData = () => {
                       />
                     </span>
                     <span className="text-gray-800">{curElem.user}</span>
-                    <span className="text-gray-800">{curElem.message}</span>
+                    <span className="text-cyan-100 ml-4">
+                      {curElem.message}
+                    </span>
                   </li>
                 </>
               );
