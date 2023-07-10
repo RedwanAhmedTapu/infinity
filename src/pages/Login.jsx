@@ -38,7 +38,7 @@ const Login = () => {
         const res = await axios
           .post("https://backendserver-flsp.onrender.com/register", user)
           .then((res) => {
-            console.log(res.data);
+            console.log(res);
             if (email === "admin@gmail.com") {
               navigate(`/adminDashboard`);
             } else {
