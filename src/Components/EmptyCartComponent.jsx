@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const EmptyCartComponent = () => {
   return (
@@ -7,9 +8,11 @@ const EmptyCartComponent = () => {
         <h2 className="text-gray-800 text-lg font-bold mb-4">
           Your cart is empty
         </h2>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md">
-          Continue Shopping
-        </button>
+        <Link to="/">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md">
+            Continue Shopping...
+          </button>
+        </Link>
       </div>
     </div>
   );
