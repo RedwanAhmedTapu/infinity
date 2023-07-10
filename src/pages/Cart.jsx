@@ -5,11 +5,11 @@ import EmptyCartComponent from "../Components/EmptyCartComponent";
 import { useCartContext } from "../context/CartContext";
 const Cart = () => {
   const { cart, total_price, total_item } = useCartContext();
-  console.log(cart.data);
+  console.log(cart);
 
   return (
     <>
-      {cart.image && (
+      {cart.name && (
         <div class="h-screen w-screen bg-gray-100 pt-20">
           <h1 class="cartText mb-10 text-center text-3xl font-bold">
             Cart Items
@@ -51,7 +51,7 @@ const Cart = () => {
           </div>
         </div>
       )}
-      {!cart.image && <EmptyCartComponent />}
+      {!cart.name && <EmptyCartComponent />}
     </>
   );
 };
