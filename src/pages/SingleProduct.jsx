@@ -9,12 +9,12 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Star from "../Components/Star";
 import { useCartContext } from "../context/CartContext";
+import ReviewData from "./ReviewData";
 const SingleProduct = () => {
   const [singleproduct, setSingleproduct] = useState("");
   const [image, setImage] = useState();
   const [amount, setAmount] = useState(1);
 
-  const [user, setUser] = useState([]);
   const { id } = useParams();
   const { addToCart } = useCartContext();
   console.log(id);
@@ -39,17 +39,8 @@ const SingleProduct = () => {
       setSingleproduct(products);
       console.log(products);
     };
-    const reviewData = async () => {
-      const res = await axios.get(
-        `https://backendserver-flsp.onrender.com/review/messages`
-      );
-      const data = await res.data;
-      console.log(res.data);
-      setUser([...user, data]);
-    };
 
     singleprdct();
-    reviewData();
   }, [id]);
   // console.log(singleproduct.image[3]);
   // console.log(user);
@@ -209,22 +200,7 @@ const SingleProduct = () => {
           </div>
         )}
       </div>
-      <ul className="divide-y divide-gray-300">
-        {user &&
-          user.map((curElem, index) => {
-            return (
-              <li className="py-4 flex items-center" key={index}>
-                <span className="bg-blue-500 rounded w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
-                  {curElem.user}
-                </span>
-                :{" "}
-                <span className="bg-blue-500 rounded w-8 h-8 flex items-center justify-center text-white font-bold mr-4">
-                  {curElem.message}
-                </span>
-              </li>
-            );
-          })}
-      </ul>
+      <ReviewData />
     </>
   );
 };
