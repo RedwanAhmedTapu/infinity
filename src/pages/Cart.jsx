@@ -9,7 +9,7 @@ const Cart = () => {
 
   return (
     <>
-      {cart.data ? (
+      {cart.image ? (
         <div class="h-screen w-screen bg-gray-100 pt-20">
           <h1 class="cartText mb-10 text-center text-3xl font-bold">
             Cart Items
