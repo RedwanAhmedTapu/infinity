@@ -28,7 +28,7 @@ const Home = () => {
       <div className=" flex flex-col w-screen space-y-16 sm:space-y-20">
         <Section />
         <ProductSelection />
-        {products === null ? (
+        {products == null ? (
           <div>
             {location.state
               ? categroyProducts && (
