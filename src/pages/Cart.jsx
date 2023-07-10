@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import EmptyCartComponent from "../Components/EmptyCartComponent";
 import { useCartContext } from "../context/CartContext";
 const Cart = () => {
+  const [isCart, setIsCart] = useState();
   const { cart, total_price, total_item } = useCartContext();
   console.log(cart);
+  if (!cart) {
+    setIsCart(false);
+  } else {
+    setIsCart(true);
+  }
 
   return (
     <>
-      {cart.name && (
+      {isCart ? (
         <div class="h-screen w-screen bg-gray-100 pt-20">
           <h1 class="cartText mb-10 text-center text-3xl font-bold">
             Cart Items
@@ -50,8 +56,9 @@ const Cart = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <EmptyCartComponent />
       )}
-      {!cart.name && <EmptyCartComponent />}
     </>
   );
 };
