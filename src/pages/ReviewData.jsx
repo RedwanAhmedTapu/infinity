@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const ReviewData = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState();
   useEffect(() => {
     const reviewData = async () => {
       const res = await axios.get(
@@ -10,7 +10,7 @@ const ReviewData = () => {
       );
       const data = await res.data;
       console.log(res.data);
-      setUser([...user, data]);
+      setUser(data);
     };
     reviewData();
   }, [user]);
