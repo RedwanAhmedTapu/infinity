@@ -89,11 +89,11 @@ const UserDashboard = () => {
             setShow(true);
           }}
         >
-          <p className=" text-2xl text-yellow-50 ">chat</p>
+          <p className=" text-2xl text-cyan-500 ">review</p>
         </div>
       )}
 
-      {userData && orderdata ? (
+      {userData && orderdata !== "" ? (
         <>
           <p className="userDashText text-2xl text-center">
             Product You Selected to Buy

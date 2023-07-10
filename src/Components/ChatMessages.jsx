@@ -71,15 +71,6 @@ const ChatMessages = (prop) => {
             Send
           </button>
         </div>
-        <ul className="divide-y divide-gray-300">
-          {messages.map((msg, index) => {
-            return (
-              <li key={index} className="py-2">
-                <strong>{msg && msg.user}</strong>: {msg && msg.message}
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </div>
   );

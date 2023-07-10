@@ -13,6 +13,8 @@ const SingleProduct = () => {
   const [singleproduct, setSingleproduct] = useState("");
   const [image, setImage] = useState();
   const [amount, setAmount] = useState(1);
+
+  const [user, setUser] = useState([]);
   const { id } = useParams();
   const { addToCart } = useCartContext();
   console.log(id);
@@ -37,7 +39,16 @@ const SingleProduct = () => {
       setSingleproduct(products);
       console.log(products);
     };
+    const reviewData = async () => {
+      const res = await axios.get(
+        `https://backendserver-flsp.onrender.com/messages`
+      );
+      const data = await res.data;
+      setUser([...user, data]);
+    };
+
     singleprdct();
+    reviewData();
   }, [id]);
   // console.log(singleproduct.image[3]);
   return (
@@ -195,6 +206,16 @@ const SingleProduct = () => {
             </div>
           </div>
         )}
+        <ul className="divide-y divide-gray-300">
+          {user &&
+            user.map((msg, index) => {
+              return (
+                <li key={index} className="py-2">
+                  <strong>{user && user.user}</strong>: {user && user.message}
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </>
   );

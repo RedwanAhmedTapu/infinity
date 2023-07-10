@@ -38,13 +38,19 @@ const Login = () => {
         const res = await axios
           .post("https://backendserver-flsp.onrender.com/loguser", user)
           .then((res) => {
-            console.log(res);
-            if (email === "admin@gmail.com") {
-              navigate(`/adminDashboard`);
+            if (res.data === "not any user") {
+              alert("wrong password and email");
             } else {
-              navigate(`/userDashboard?userMail=${email}`);
+              if (
+                email === "admin@gmail.com" &&
+                password === res.data.password
+              ) {
+                navigate(`/adminDashboard`);
+              } else {
+                navigate(`/userDashboard?userMail=${email}`);
+              }
+              alert("login successfull");
             }
-            alert("login successfull");
           })
           .catch((err) => {
             console.log(err);
