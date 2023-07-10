@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import EmptyCartComponent from "../Components/EmptyCartComponent";
 import { useCartContext } from "../context/CartContext";
 const Cart = () => {
-  const [isCart, setCart] = useState();
   const { cart, total_price, total_item } = useCartContext();
-  useEffect(() => {
-    setCart(cart);
-  }, [cart]);
+
   return (
     <>
-      {isCart ? (
+      {cart && (
         <div class="h-screen w-screen bg-gray-100 pt-20">
           <h1 class="cartText mb-10 text-center text-3xl font-bold">
             Cart Items
@@ -51,9 +48,8 @@ const Cart = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <EmptyCartComponent />
       )}
+      {!cart && <EmptyCartComponent />}
     </>
   );
 };

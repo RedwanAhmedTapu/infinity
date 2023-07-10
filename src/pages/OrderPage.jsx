@@ -12,7 +12,7 @@ const OrderPage = () => {
   const { cart, total_price, total_item } = useCartContext();
 
   const navigate = useNavigate();
-  alert("You Must fill up registered email and phone number");
+  alert("You Must fill up registered email and phone number in OrderPage");
   const handleConfirmOrder = async (e) => {
     e.preventDefault();
 
