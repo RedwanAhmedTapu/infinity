@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const ChatMessages = (prop) => {
   const [messages, setMessages] = useState([]);
+  const [image, setImage] = useState("");
   const [user, setUser] = useState("");
   const [message, setMessage] = useState("");
 
@@ -24,13 +25,15 @@ const ChatMessages = (prop) => {
   const handleClick = prop.onClick;
   const sendMessage = async () => {
     try {
-      const response = await axios.post(
-        "https://backendserver-flsp.onrender.com/messages",
-        {
+      const response = await axios
+        .post("https://backendserver-flsp.onrender.com/messages", {
+          image,
           user,
           message,
-        }
-      );
+        })
+        .then((res) => {
+          alert("review given successfully");
+        });
       //   setMessages([...messages, response.data]);
       setMessage("");
     } catch (error) {
@@ -46,7 +49,16 @@ const ChatMessages = (prop) => {
         onClick={handleClick}
       />
       <div className="bg-white bg-opacity-20 rounded-lg shadow-lg p-6 max-w-md w-full">
-        <h1 className="text-3xl mb-4">Chat App</h1>
+        <h1 className="text-3xl mb-4">Give A Review </h1>
+        <div className="mb-4">
+          <input
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            placeholder="Enter your  image"
+            className="rounded-lg w-full bg-gray-200 p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
         <div className="mb-4">
           <input
             type="text"

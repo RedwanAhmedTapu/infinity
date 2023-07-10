@@ -12,9 +12,10 @@ const OrderPage = () => {
   const { cart, total_price, total_item } = useCartContext();
 
   const navigate = useNavigate();
+  alert("You Must fill up registered email and phone number");
   const handleConfirmOrder = async (e) => {
     e.preventDefault();
-    alert("You Must fill up registered email and phone number");
+
     try {
       const orderData = {
         village,
