@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import EmptyCartComponent from "../Components/EmptyCartComponent";
 import { useCartContext } from "../context/CartContext";
 const Cart = () => {
+  const [isCart, setCart] = useState(false);
   const { cart, total_price, total_item } = useCartContext();
-
+  useEffect(() => {
+    setCart(true);
+  }, [cart]);
   return (
     <>
-      {cart && (
+      {isCart ? (
         <div class="h-screen w-screen bg-gray-100 pt-20">
           <h1 class="cartText mb-10 text-center text-3xl font-bold">
             Cart Items
@@ -39,18 +42,18 @@ const Cart = () => {
                   <p class="text-sm text-gray-700">including VAT</p>
                 </div>
               </div>
-              {cart && (
-                <Link to={`/orderPage`}>
-                  <button class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
-                    Check out
-                  </button>
-                </Link>
-              )}
+
+              <Link to={`/orderPage`}>
+                <button class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
+                  Check out
+                </button>
+              </Link>
             </div>
           </div>
         </div>
+      ) : (
+        <EmptyCartComponent />
       )}
-      {cart && <EmptyCartComponent />}
     </>
   );
 };
