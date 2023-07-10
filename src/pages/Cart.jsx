@@ -1,18 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import EmptyCartComponent from "../Components/EmptyCartComponent";
 import { useCartContext } from "../context/CartContext";
 const Cart = () => {
-  const [isCart, setIsCart] = useState();
+  const [isCart, setCart] = useState();
   const { cart, total_price, total_item } = useCartContext();
-  console.log(cart);
-  if (!cart) {
-    setIsCart(false);
-  } else {
-    setIsCart(true);
-  }
-
+  useEffect(() => {
+    setCart(cart);
+  }, [cart]);
   return (
     <>
       {isCart ? (
@@ -22,10 +18,9 @@ const Cart = () => {
           </h1>
           <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
             <div class="rounded-lg md:w-2/3 ">
-              {cart &&
-                cart.map((curElem, index) => {
-                  return <CartItem key={index} {...curElem} />;
-                })}
+              {cart.map((curElem, index) => {
+                return <CartItem key={index} {...curElem} />;
+              })}
             </div>
 
             <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
