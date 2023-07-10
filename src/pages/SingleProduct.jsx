@@ -49,7 +49,7 @@ const SingleProduct = () => {
 
     singleprdct();
     reviewData();
-  }, [id]);
+  }, [id, user]);
   // console.log(singleproduct.image[3]);
   console.log(user);
   return (
@@ -207,17 +207,17 @@ const SingleProduct = () => {
             </div>
           </div>
         )}
-        <ul className="divide-y divide-gray-300">
-          {user &&
-            user.map((msg, index) => {
-              return (
-                <li key={index} className="py-2">
-                  <strong>{user && user.user}</strong>: {user && user.message}
-                </li>
-              );
-            })}
-        </ul>
       </div>
+      <ul className="divide-y divide-gray-300">
+        {user &&
+          user.map((msg, index) => {
+            return (
+              <li key={index} className="py-2">
+                <strong>{user && user.user}</strong>: {user && user.message}
+              </li>
+            );
+          })}
+      </ul>
     </>
   );
 };
