@@ -36,7 +36,7 @@ const Login = () => {
         alert("please fill all the data");
       } else {
         const res = await axios
-          .post("https://backendserver-flsp.onrender.com/register", user)
+          .post("https://backendserver-flsp.onrender.com/loguser", user)
           .then((res) => {
             console.log(res);
             if (email === "admin@gmail.com") {
