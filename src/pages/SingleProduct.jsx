@@ -44,14 +44,15 @@ const SingleProduct = () => {
         `https://backendserver-flsp.onrender.com/messages`
       );
       const data = await res.data;
+      console.log(res.data);
       setUser([...user, data]);
     };
 
     singleprdct();
     reviewData();
-  }, [id, user]);
+  }, [id]);
   // console.log(singleproduct.image[3]);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <div className=" flex justify-center items-center  mt-8">
