@@ -12,7 +12,7 @@ const OrderPage = () => {
   const { cart, total_price, total_item } = useCartContext();
 
   const navigate = useNavigate();
-  alert("You Must fill up registered email and phone number in OrderPage");
+
   const handleConfirmOrder = async (e) => {
     e.preventDefault();
 
@@ -59,7 +59,9 @@ const OrderPage = () => {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Order Page</h1>
+        <h1 className="text-2xl font-bold mb-4">
+          You Must fill up registered email and phone number Order Page
+        </h1>
         <form>
           <div className="mb-4">
             <label className="block text-gray-700">Village</label>

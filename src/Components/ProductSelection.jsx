@@ -38,7 +38,7 @@ const ProductSelection = () => {
             Groceries
           </div>
         </NavLink>
-        <NavLink to="/" state={{ category: "home-decoration" }}>
+        <NavLink to="/" state={{ category: "homeDecoration" }}>
           <div className="productselection text-violet-50 contrast-125 sm:w-34 xl:w-40 font-bold  w-24 h-12 sm:h-16 bg-orange-300  rounded-lg -inset-1 shadow-teal-200 flex justify-center items-center  shadow-2xl hover:transition ease-in-out duration-200 hover:scale-110 ">
             Home Decoration
           </div>
