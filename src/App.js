@@ -13,7 +13,7 @@ import Signup from "./pages/Signup";
 import SingleProductpage from "./pages/SingleProduct";
 import UserDashboard from "./pages/UserDashboard";
 import UserOrderData from "./pages/UserOrderData";
-const App = () => {
+const App = ({ checked }) => {
   return (
     <Router>
       <Header />
