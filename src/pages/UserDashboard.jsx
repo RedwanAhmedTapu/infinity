@@ -57,23 +57,14 @@ const UserDashboard = () => {
               </p>
             </div>
             <div class="flex justify-center gap-7 p-6 pt-2">
-              <a
-                href="www.facebook.com"
-                class="block bg-gradient-to-tr from-blue-600 to-blue-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased"
-              >
+              <a class="block bg-gradient-to-tr from-blue-600 to-blue-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased">
                 <FacebookIcon />
               </a>
-              <a
-                href="#twitter"
-                class="block bg-gradient-to-tr from-light-blue-600 to-light-blue-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased"
-              >
-                <i class="fab fa-twitter" aria-hidden="true"></i>
+              <a className="block bg-gradient-to-tr from-light-blue-600 to-light-blue-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased">
+                <i className="fab fa-twitter" aria-hidden="true"></i>
               </a>
-              <a
-                href="www.instagram.com"
-                class="block bg-gradient-to-tr from-purple-600 to-purple-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased"
-              >
-                <i class="fab fa-instagram" aria-hidden="true"></i>
+              <a class="block bg-gradient-to-tr from-purple-600 to-purple-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased">
+                <i className="fab fa-instagram" aria-hidden="true"></i>
               </a>
             </div>
           </div>

@@ -29,7 +29,7 @@ const UpdateAnddelete = (curElem) => {
             alt=""
             className="w-20 h-20 rounded-full mr-4"
           />
-          <span className="font-bold">CurElem.title</span>
+          <span className="font-bold">{curElem.title}</span>
         </div>
         <div>
           <button
