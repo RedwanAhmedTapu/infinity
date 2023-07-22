@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import About from "./pages/About";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -13,9 +13,10 @@ import Signup from "./pages/Signup";
 import SingleProductpage from "./pages/SingleProduct";
 import UserDashboard from "./pages/UserDashboard";
 import UserOrderData from "./pages/UserOrderData";
+const basename = "/";
 const App = ({ checked }) => {
   return (
-    <Router>
+    <Router basename={basename}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

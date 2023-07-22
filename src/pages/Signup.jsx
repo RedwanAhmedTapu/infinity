@@ -47,7 +47,6 @@ const Signup = () => {
           body: JSON.stringify(user),
         }).then((res) => {
           navigate("/login");
-          alert("registration completed");
         });
       }
     } catch (error) {

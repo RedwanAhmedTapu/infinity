@@ -15,15 +15,16 @@ const Cart = () => {
           </h1>
           <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
             <div class="rounded-lg md:w-2/3 ">
-              {cart.map((curElem, index) => {
-                return <CartItem key={index} {...curElem} />;
-              })}
+              {cart &&
+                cart.map((curElem, index) => {
+                  return <CartItem key={index} {...curElem} />;
+                })}
             </div>
 
             <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
               <div class="mb-2 flex justify-between">
                 <p class="text-gray-700">Subtotal</p>
-                <p class="text-gray-700">${total_price}</p>
+                <p class="text-gray-700">${total_price && total_price}</p>
               </div>
               <div class="flex justify-between">
                 <p class="text-gray-700">Shipping Cost</p>
@@ -34,7 +35,7 @@ const Cart = () => {
                 <p class="text-lg font-bold">Total</p>
                 <div class="">
                   <p class="mb-1 text-lg font-bold">
-                    ${total_price + 2.99} USD
+                    ${total_price && total_price + 2.99} USD
                   </p>
                   <p class="text-sm text-gray-700">including VAT</p>
                 </div>

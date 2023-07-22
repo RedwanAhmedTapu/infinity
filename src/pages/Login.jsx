@@ -49,7 +49,6 @@ const Login = () => {
               } else {
                 navigate(`/userDashboard?userMail=${email}`);
               }
-              alert("login successfull");
             }
           })
           .catch((err) => {
@@ -60,7 +59,7 @@ const Login = () => {
       console.error("Failed to login :", error);
     }
   };
-  console.log(user);
+
   return (
     <>
       <div className="flex justify-center items-center w-screen h-screen">
@@ -73,7 +72,7 @@ const Login = () => {
               size="lg"
               name="email"
               id="email"
-              value={user.email}
+              value={user && user.email}
               onChange={handleChange}
             />
             <Input
@@ -83,7 +82,7 @@ const Login = () => {
               size="lg"
               name="password"
               id="password"
-              value={user.password}
+              value={user && user.password}
               onChange={handleChange}
             />
             <div className="-ml-2.5">

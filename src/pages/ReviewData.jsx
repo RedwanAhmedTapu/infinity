@@ -9,7 +9,7 @@ const ReviewData = () => {
         `https://backendserver-flsp.onrender.com/review/messages`
       );
       const data = await res.data;
-      console.log(res.data);
+
       setUser(data);
     };
     reviewData();
@@ -31,9 +31,11 @@ const ReviewData = () => {
                         className="w-8 h-8 rounded-full"
                       />
                     </span>
-                    <span className="text-gray-800">{curElem.user}</span>
+                    <span className="text-gray-800">
+                      {curElem.user && curElem.user}
+                    </span>
                     <span className="text-cyan-100 ml-4">
-                      {curElem.message}
+                      {curElem.message && curElem.message}
                     </span>
                   </li>
                 </>

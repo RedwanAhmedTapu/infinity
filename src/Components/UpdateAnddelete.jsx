@@ -25,11 +25,11 @@ const UpdateAnddelete = (curElem) => {
       <div className="flex sm:flex-row flex-col items-center justify-between bg-gray-200 sm:w-96 w-64 sm:h-24 h-48  p-4 gap-3">
         <div className="flex sm:flex-row flex-col items-center gap-3">
           <img
-            src={curElem.thumbnail}
+            src={curElem && curElem.thumbnail}
             alt=""
             className="w-20 h-20 rounded-full mr-4"
           />
-          <span className="font-bold">{curElem.title}</span>
+          <span className="font-bold">{curElem && curElem.title}</span>
         </div>
         <div>
           <button

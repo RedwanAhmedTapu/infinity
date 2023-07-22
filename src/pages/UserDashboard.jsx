@@ -84,7 +84,7 @@ const UserDashboard = () => {
         </div>
       )}
 
-      {userData && orderdata !== "" ? (
+      {userData && orderdata.length !== "" ? (
         <>
           <p className="userDashText text-2xl text-center">
             Product You Selected to Buy
