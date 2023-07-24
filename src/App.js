@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, HashRouter as Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import About from "./pages/About";
 import AdminDashboard from "./pages/AdminDashboard";
