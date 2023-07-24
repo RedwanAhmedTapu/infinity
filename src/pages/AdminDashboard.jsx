@@ -170,7 +170,7 @@ const AdminDashboard = () => {
                 Price
               </label>
               <input
-                type="text"
+                type="number"
                 id="price"
                 name="price"
                 value={formData.price}
@@ -186,7 +186,7 @@ const AdminDashboard = () => {
                 DiscountPercentage
               </label>
               <input
-                type="text"
+                type="number"
                 id="discountPercentage"
                 name="discountPercentage"
                 value={formData.discountPercentage}
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
                 Rating
               </label>
               <input
-                type="text"
+                type="number"
                 id="rating"
                 name="rating"
                 value={formData.rating}
@@ -218,7 +218,7 @@ const AdminDashboard = () => {
                 Stock
               </label>
               <input
-                type="text"
+                type="number"
                 id="stock"
                 name="stock"
                 value={formData.stock}
