@@ -43,7 +43,7 @@ const Login = () => {
             } else {
               if (
                 email === "admin@gmail.com" &&
-                password === res.data.password
+                password === res.data.user.password
               ) {
                 navigate(`/adminDashboard`);
               } else {
