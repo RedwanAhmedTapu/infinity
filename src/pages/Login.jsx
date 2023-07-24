@@ -42,13 +42,12 @@ const Login = () => {
               alert("wrong password and email");
             } else {
               if (res.data.token) {
+                console.log(res.data.token);
                 axios.defaults.headers.common[
                   "Authorization"
                 ] = `Bearer ${res.data.token}`;
-                if (
-                  email === "admin@gmail.com" &&
-                  password === res.data.user.password
-                ) {
+
+                if (email === "admin@gmail.com") {
                   navigate(`/adminDashboard`);
                 } else {
                   navigate(`/userDashboard?userMail=${email}`);
