@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 import UpdateAnddelete from "../Components/UpdateAnddelete";
@@ -8,10 +9,10 @@ const AdminDashboard = () => {
     Id: "",
     title: "",
     description: "",
-    price: 0,
-    discountPercentage: 0,
-    rating: 0,
-    stock: 0,
+    price: "",
+    discountPercentage: "",
+    rating: "",
+    stock: "",
     brand: "",
     category: "",
     thumbnail: "",
@@ -43,7 +44,6 @@ const AdminDashboard = () => {
       category,
       description,
       discountPercentage,
-      images,
       price,
       rating,
       stock,
@@ -66,13 +66,9 @@ const AdminDashboard = () => {
       ) {
         alert("please fill all the data");
       } else {
-        await fetch("https://backendserver-flsp.onrender.com/newProduct", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        })
+        const res = await axios
+          .post("https://backendserver-flsp.onrender.com/newProduct", formData)
+
           .then((res) => {
             alert("New Product Added ");
           })
