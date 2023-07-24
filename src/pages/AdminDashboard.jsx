@@ -8,10 +8,10 @@ const AdminDashboard = () => {
     Id: "",
     title: "",
     description: "",
-    price: "",
-    discountPercentage: "",
-    rating: "",
-    stock: "",
+    price: 0,
+    discountPercentage: 0,
+    rating: 0,
+    stock: 0,
     brand: "",
     category: "",
     thumbnail: "",
@@ -72,9 +72,13 @@ const AdminDashboard = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }).then((res) => {
-          alert("New Product Added ");
-        });
+        })
+          .then((res) => {
+            alert("New Product Added ");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } catch (error) {
       console.error("Failed to Add new Product :", error);
