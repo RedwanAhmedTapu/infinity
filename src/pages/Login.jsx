@@ -45,7 +45,7 @@ const Login = () => {
                 console.log(res.data.token);
                 axios.defaults.headers.common[
                   "Authorization"
-                ] = `Bearer ${res.data.token}`;
+                ] = ` ${res.data.token}`;
 
                 if (email === "admin@gmail.com") {
                   navigate(`/adminDashboard`);
