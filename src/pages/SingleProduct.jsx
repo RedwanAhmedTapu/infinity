@@ -37,7 +37,6 @@ const SingleProduct = () => {
       console.log(res);
       const products = await res.data;
       setSingleproduct(products);
-      console.log(products);
     };
 
     singleprdct();
