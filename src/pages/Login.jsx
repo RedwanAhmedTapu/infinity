@@ -41,13 +41,20 @@ const Login = () => {
             if (res.data === "not any user") {
               alert("wrong password and email");
             } else {
-              if (
-                email === "admin@gmail.com" &&
-                password === res.data.user.password
-              ) {
-                navigate(`/adminDashboard`);
+              if (res.data.token) {
+                axios.defaults.headers.common[
+                  "Authorization"
+                ] = `Bearer ${res.data.token}`;
+                if (
+                  email === "admin@gmail.com" &&
+                  password === res.data.user.password
+                ) {
+                  navigate(`/adminDashboard`);
+                } else {
+                  navigate(`/userDashboard?userMail=${email}`);
+                }
               } else {
-                navigate(`/userDashboard?userMail=${email}`);
+                delete axios.defaults.headers.common["Authorization"];
               }
             }
           })
