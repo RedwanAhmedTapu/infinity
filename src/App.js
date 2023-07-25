@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Header from "./Components/Header";
-import PrivateRoute from "./Components/PrivateRoute";
 import About from "./pages/About";
 import AdminDashboard from "./pages/AdminDashboard";
 import Cart from "./pages/Cart";
@@ -16,7 +15,6 @@ import UserDashboard from "./pages/UserDashboard";
 import UserOrderData from "./pages/UserOrderData";
 const basename = "/";
 const App = ({ checked }) => {
-  const [token, setToken] = useState("");
   return (
     <Router basename={basename}>
       <Header />
@@ -28,23 +26,9 @@ const App = ({ checked }) => {
         <Route path="/singleproduct/:id" element={<SingleProductpage />} />
         <Route path="/errorpage" element={<Errorpage />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login">
-          <Login setToken={setToken} />
-        </Route>
-        <PrivateRoute
-          path="/adminDashboard"
-          component={AdminDashboard}
-          isAuthenticated={!!token}
-          isAdmin={true}
-        />
-        <PrivateRoute
-          path="/userDashboard"
-          component={UserDashboard}
-          isAuthenticated={!!token}
-          isAdmin={false}
-        />
-        {/* <Route path="/userDashboard" element={<UserDashboard />} />
-        <Route path="/adminDashboard" element={<AdminDashboard />} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/userDashboard" element={<UserDashboard />} />
+        <Route path="/adminDashboard" element={<AdminDashboard />} />
         <Route path="/orderPage" element={<OrderPage />} />
         <Route path="/userOrderData" element={<UserOrderData />} />
       </Routes>

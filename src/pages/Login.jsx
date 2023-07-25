@@ -11,7 +11,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = ({ setToken }) => {
+const Login = () => {
   const [user, setUser] = useState({
     email: " ",
     password: " ",
@@ -46,13 +46,12 @@ const Login = ({ setToken }) => {
                 axios.defaults.headers.common[
                   "Authorization"
                 ] = ` ${res.data.token}`;
-                setToken(res.data.token);
 
-                // if (email === "admin@gmail.com") {
-                //   navigate(`/adminDashboard`);
-                // } else {
-                //   navigate(`/userDashboard?userMail=${email}`);
-                // }
+                if (email === "admin@gmail.com") {
+                  navigate(`/adminDashboard`);
+                } else {
+                  navigate(`/userDashboard?userMail=${email}`);
+                }
               } else {
                 delete axios.defaults.headers.common["Authorization"];
               }
