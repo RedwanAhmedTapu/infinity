@@ -12,7 +12,14 @@ const Signup = () => {
     confirmpassword: " ",
     description: " ",
   });
-  console.log(user);
+  const [isValid, setIsValid] = useState(false);
+
+  const validateEmail = (email) => {
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  console.log(isValid);
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,15 +46,21 @@ const Signup = () => {
       ) {
         alert("please fill all the data");
       } else {
-        await fetch("https://backendserver-flsp.onrender.com/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        }).then((res) => {
-          navigate("/login");
-        });
+        const isValidEmail = validateEmail(email);
+        setIsValid(isValidEmail);
+        if (isValid) {
+          await fetch("https://backendserver-flsp.onrender.com/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          }).then((res) => {
+            navigate("/login");
+          });
+        } else {
+          alert("wrong email format");
+        }
       }
     } catch (error) {
       console.error("Failed to submit form:", error);
