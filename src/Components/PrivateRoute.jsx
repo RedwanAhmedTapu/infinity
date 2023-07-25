@@ -1,7 +1,7 @@
 // src/PrivateRoute.js
 
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 const PrivateRoute = ({
   component: Component,
@@ -17,10 +17,10 @@ const PrivateRoute = ({
           isAdmin ? (
             <Component {...props} />
           ) : (
-            <Redirect to="/userDashboard" />
+            <Link to="/userDashboard" />
           )
         ) : (
-          <Redirect to="/login" />
+          <Link to="/login" />
         )
       }
     />
