@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/userOrderData" element={<UserOrderData />} />
           </>
         )}
-        <Route path="/login" setToken={setToken} element={<Login />} />
+        <Route path="/login" element={<Login setToken={setToken} />} />
 
         <Route path="/orderPage" element={<OrderPage />} />
       </Routes>

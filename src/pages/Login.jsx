@@ -17,6 +17,9 @@ const Login = ({ setToken }) => {
     password: " ",
   });
   const navigate = useNavigate();
+  // const set = () => {
+  //   setToken(true);
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
