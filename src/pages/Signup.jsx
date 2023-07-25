@@ -47,7 +47,11 @@ const Signup = () => {
         alert("please fill all the data");
       } else {
         const isValidEmail = validateEmail(email);
-        setIsValid(isValidEmail);
+        if (isValidEmail) {
+          setIsValid(true);
+        } else {
+          setIsValid(false);
+        }
         if (isValid) {
           await fetch("https://backendserver-flsp.onrender.com/register", {
             method: "POST",
@@ -168,7 +172,6 @@ const Signup = () => {
               rows="5"
               value={user.name}
               onChange={handleChange}
-              required
             ></textarea>
           </div>
           <div className="bg-orange-400 w-44 h-16 flex justify-center items-center text-xl text-white font-semibold">
