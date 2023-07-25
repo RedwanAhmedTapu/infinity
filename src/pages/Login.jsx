@@ -46,7 +46,7 @@ const Login = ({ setToken }) => {
                 axios.defaults.headers.common[
                   "Authorization"
                 ] = ` ${res.data.token}`;
-                setToken(res.data.token);
+                setToken(true);
                 if (email === "admin@gmail.com") {
                   navigate(`/adminDashboard`);
                 } else {

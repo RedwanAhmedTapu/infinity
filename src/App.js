@@ -14,7 +14,7 @@ import SingleProductpage from "./pages/SingleProduct";
 import UserDashboard from "./pages/UserDashboard";
 import UserOrderData from "./pages/UserOrderData";
 const basename = "/";
-const App = ({ checked }) => {
+const App = () => {
   const [token, setToken] = useState(false);
 
   return (
