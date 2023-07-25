@@ -1,24 +1,20 @@
 // src/PrivateRoute.js
 
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Outlet, Route } from "react-router-dom";
 
-const PrivateRoute = ({
-  component: Component,
-  isAuthenticated,
-  isAdmin,
-  ...rest
-}) => {
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) =>
         isAuthenticated ? (
-          isAdmin ? (
-            <Component {...props} />
-          ) : (
-            <Link to="/userDashboard" />
-          )
+          //   isAdmin ? (
+          //     // <Component {...props} />
+          //   ) : (
+          //     <Link to="/userDashboard" />
+          //   )
+          <Outlet {...props} />
         ) : (
           <Link to="/login" />
         )

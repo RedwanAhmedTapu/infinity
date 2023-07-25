@@ -11,7 +11,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setToken }) => {
   const [user, setUser] = useState({
     email: " ",
     password: " ",
@@ -46,7 +46,7 @@ const Login = () => {
                 axios.defaults.headers.common[
                   "Authorization"
                 ] = ` ${res.data.token}`;
-
+                setToken(res.data.token);
                 if (email === "admin@gmail.com") {
                   navigate(`/adminDashboard`);
                 } else {
